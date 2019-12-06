@@ -11,6 +11,8 @@ Version 1.0 - Created by Henrik Ekblad (https://github.com/mysensors/MySensorsAr
 
 Version 1.1 - Modified by Marc Stähli (different display for approaching, code cleanup)
 
+Find here the files to print it on your 3D printer: https://www.thingiverse.com/thing:4026559
+
 [![NeoPixels Parking Sensor](https://github.com/3KUdelta/NeoPixels_Parking_Sensor/blob/master/images/NP_G_S_Collage.jpg)](https://github.com/3KUdelta/NeoPixels_Parking_Sensor)
 
 [![NeoPixels Parking Sensor](https://github.com/3KUdelta/NeoPixels_Parking_Sensor/blob/master/images/NP_C_S_Collage2.jpg)](https://github.com/3KUdelta/NeoPixels_Parking_Sensor)
