@@ -1,7 +1,7 @@
 # NeoPixels Parking Sensor
 Using NeoPixels and an Ultrasonic Sensor as a parking aid
 
-Version 1.0 - Created by Henrik Ekblad
+Version 1.0 - Created by Henrik Ekblad (https://github.com/mysensors/MySensorsArduinoExamples/blob/master/examples/ParkingSensor/ParkingSensor.ino)
 
 Version 1.1 - Modified by Marc Stähli (different display for approaching, code cleanup)
 
