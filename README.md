@@ -17,4 +17,5 @@ Version 1.1 - Modified by Marc Stähli (different display for approaching, code 
 
 [![NeoPixels Parking Sensor](https://github.com/3KUdelta/NeoPixels_Parking_Sensor/blob/master/images/NP_G_S_8.jpg)](https://github.com/3KUdelta/NeoPixels_Parking_Sensor)
 
-
+Super simple build (it is all in the software ;-)
+[![NeoPixels Parking Sensor](https://github.com/3KUdelta/NeoPixels_Parking_Sensor/blob/master/images/NeoPixel_Parking_Sensor.jpg)](https://github.com/3KUdelta/NeoPixels_Parking_Sensor)
