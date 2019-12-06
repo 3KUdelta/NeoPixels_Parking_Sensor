@@ -1,6 +1,14 @@
 /**
 REVISION HISTORY
-Version 1.0 - Created by Henrik Ekblad
+
+Version 1.0
+ * Created by Henrik Ekblad <henrik.ekblad@mysensors.org>
+ * Copyright (C) 2013-2015 Sensnology AB
+ * Full contributor list: https://github.com/mysensors/Arduino/graphs/contributors
+ *
+ * Documentation: http://www.mysensors.org
+ * Support Forum: http://forum.mysensors.org
+
 Version 1.1 - Modified by Marc Stähli (different display for approaching, code cleanup)
 
 DESCRIPTION
