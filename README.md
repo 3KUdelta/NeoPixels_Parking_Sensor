@@ -2,7 +2,7 @@
 Using NeoPixels and an Ultrasonic Sensor as a parking aid
 
 Parking sensor using a neopixel led ring and distance sensor (HC-SR04).
-Configure the digital pins used for distance sensor and neopixels below.
+Configure the digital pins used for distance sensor and neopixels at the beginning of the code.
    
 Advice! In general to feed leds and distance sensor serparatly from your Arduino.
 My Nano did survive the test - does not use too much juice... You can also adjust intesity of the LEDs to reduce the power requirements.
