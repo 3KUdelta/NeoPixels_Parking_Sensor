@@ -2,6 +2,7 @@
 REVISION HISTORY
 
 Version 1.0
+
  * Created by Henrik Ekblad <henrik.ekblad@mysensors.org>
  * Copyright (C) 2013-2015 Sensnology AB
  * Full contributor list: https://github.com/mysensors/Arduino/graphs/contributors
@@ -10,6 +11,7 @@ Version 1.0
  * Support Forum: http://forum.mysensors.org
 
 Version 1.1 - Modified by Marc Stähli (different display for approaching, code cleanup)
+Case for your 3D printer:  https://www.thingiverse.com/thing:4026559
 
 DESCRIPTION
    Parking sensor using a neopixel led ring and distance sensor (HC-SR04).
@@ -28,7 +30,6 @@ in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
-
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
@@ -39,7 +40,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 */
 
 #include <Adafruit_NeoPixel.h>
@@ -54,15 +54,14 @@ SOFTWARE.
 #define MAX_INTESITY   25  // Intesity of leds (in percentage). Remeber more intesity requires more power.
 
 // The maximum rated measuring range for the HC-SR04 is about 400-500cm.
-#define MAX_DISTANCE 80 // Max distance we want to start indicating green (in cm)
-#define PANIC_DISTANCE 10 // Mix distance we red warning indication should be active (in cm)
-#define PARKED_DISTANCE 20 // Distance when "parked signal" should be sent to controller (in cm)
+#define IDEAL_DISTANCE 40 // Distance where your car needs to come to a stop (in cm)
+#define PANIC_DISTANCE 10 // Min distance where red warning indication should be active (in cm)
 
 #define PARK_OFF_TIMEOUT 10*1000 // Number of milliseconds until turning off light when parked.
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, NEO_PIN, NEO_GRB + NEO_KHZ800);
 
-NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE); // NewPing setup of pins and maximum distance.
+NewPing sonar(TRIGGER_PIN, ECHO_PIN, IDEAL_DISTANCE*2); // NewPing setup of pins and maximum distance.
 
 unsigned long sendInterval = 5000;  // Send park status at maximum every 5 second.
 unsigned long lastSend;
@@ -93,7 +92,7 @@ void setup() {
 void loop() {
   unsigned long now = millis();
   measuredDist = (sonar.ping_median() / US_ROUNDTRIP_CM);
-  displayDist = min(measuredDist, MAX_DISTANCE);
+  displayDist = min(measuredDist, IDEAL_DISTANCE*2);
 
   if (displayDist == 0 && skipZero < 10) {         // Try to filter zero readings
     skipZero++;
@@ -112,7 +111,7 @@ void loop() {
       }
     } else {
       skipZero = 0;
-      newLightPixels = NUMPIXELS - (NUMPIXELS * (displayDist - PANIC_DISTANCE) / (MAX_DISTANCE - PANIC_DISTANCE));
+      newLightPixels = NUMPIXELS - (NUMPIXELS * (displayDist - PANIC_DISTANCE) / ((IDEAL_DISTANCE*2) - PANIC_DISTANCE));
       if (newLightPixels > numLightPixels) {          // level raising
         numLightPixels++;
         moving = true;
